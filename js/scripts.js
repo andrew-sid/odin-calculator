@@ -45,6 +45,12 @@ function main() {
   let display = document.querySelector('.calculator__display');
   const operateBtn = document.querySelector('.calculator__operateBtn');
 
+  function wipeData() {
+    display.textContent = '0';
+    numbers = [];
+    operator = '';
+  }
+
   //num listener
   document.querySelectorAll('.calculator__numBtn').forEach((numBtn) => {
     numBtn.addEventListener('click', () => {
@@ -59,7 +65,7 @@ function main() {
   //op listener
   document.querySelectorAll('.calculator__opBtn').forEach((opBtn) => {
     opBtn.addEventListener('click', () => {
-      if (!(+display.textContent === numbers[0])) {
+      if (+display.textContent !== numbers[0]) {
         numbers.push(+display.textContent); //check if operate was pressed
       }
 
@@ -77,20 +83,19 @@ function main() {
   operateBtn.addEventListener('click', () => {
     numbers.push(+display.textContent);
 
-    if (numbers.length >= 2) {
+    if (numbers.length >= 2 && operator) {
       let result = operate(numbers.at(-2), numbers.at(-1), operator);
       display.textContent = result;
       numbers = [];
       numbers.push(result);
+      operator = '';
+    } else {
+      wipeData();
     }
   });
 
   // clear button wipe all
-  document.querySelector('.calculator__clearBtn').addEventListener('click', () => {
-    display.textContent = '0';
-    numbers = [];
-    operator = '';
-  });
+  document.querySelector('.calculator__clearBtn').addEventListener('click', wipeData);
 }
 
 main();
