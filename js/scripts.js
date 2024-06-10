@@ -4,7 +4,9 @@ const subtract = (a, b) => a - b;
 
 const multiply = (a, b) => a * b;
 
-const devide = (a, b) => a / b;
+const devide = (a, b) => {
+  return b === 0 ? 'Division by zero error' : a / b;
+};
 
 function operate(a, b, op) {
   let result;
@@ -41,6 +43,13 @@ function main() {
     operator = '';
   }
 
+  function calc() {
+    let result = operate(numbers.at(-2), numbers.at(-1), operator);
+    display.textContent = result;
+    numbers = [];
+    numbers.push(result);
+  }
+
   //num listener
   document.querySelectorAll('.calculator__numBtn').forEach((numBtn) => {
     numBtn.addEventListener('click', () => {
@@ -60,13 +69,10 @@ function main() {
       }
 
       if (numbers.length >= 2) {
-        let result = operate(numbers.at(-2), numbers.at(-1), operator);
-        display.textContent = result;
-        numbers.push(result);
+        calc();
       }
 
       operator = opBtn.textContent;
-
     });
   });
 
@@ -74,10 +80,7 @@ function main() {
     numbers.push(+display.textContent);
 
     if (numbers.length >= 2 && operator) {
-      let result = operate(numbers.at(-2), numbers.at(-1), operator);
-      display.textContent = result;
-      numbers = [];
-      numbers.push(result);
+      calc();
       operator = '';
     } else {
       wipeData();
