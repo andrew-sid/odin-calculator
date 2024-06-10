@@ -71,7 +71,6 @@ function main() {
 
       operator = opBtn.textContent;
 
-      console.log(numbers);
     });
   });
 
@@ -84,7 +83,6 @@ function main() {
       numbers = [];
       numbers.push(result);
     }
-    console.log(numbers);
   });
 
   // clear button wipe all
