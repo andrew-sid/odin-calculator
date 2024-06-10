@@ -5,7 +5,7 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 
 const devide = (a, b) => {
-  return b === 0 ? 'Division by zero error' : a / b;
+  return b === 0 ? 'Division by zero' : a / b;
 };
 
 function operate(a, b, op) {
