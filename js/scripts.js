@@ -1,22 +1,13 @@
-function add(a, b) {
-  return a + b;
-}
+const add = (a, b) => a + b;
 
-function subtract(a, b) {
-  return a - b;
-}
+const subtract = (a, b) => a - b;
 
-function multiply(a, b) {
-  return a * b;
-}
+const multiply = (a, b) => a * b;
 
-function devide(a, b) {
-  return a / b;
-}
+const devide = (a, b) => a / b;
 
 function operate(a, b, op) {
   let result;
-
   switch (op) {
     case '+': {
       result = add(a, b);
@@ -35,7 +26,6 @@ function operate(a, b, op) {
       break;
     }
   }
-
   return result;
 }
 
