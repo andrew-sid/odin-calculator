@@ -45,7 +45,14 @@ function main() {
 
   function calc() {
     let result = operate(numbers.at(-2), numbers.at(-1), operator);
-    console.log(result.toString().length);
+    
+    // zero division handler
+    if (result === 'Division by zero') {
+      display.textContent = result;
+      setTimeout(() => wipeData(), 1000);
+      return;
+    };
+
     result.toString().length > 12 ? (result = Number(result.toFixed(10))) : null;
     display.textContent = result;
     numbers = [];
@@ -58,9 +65,7 @@ function main() {
       if (display.textContent === '0' || Number(display.textContent) === numbers.at(-1)) {
         display.textContent = '';
       }
-
       if (display.textContent.length === 14) return; //disabled when oveflow
-
       display.textContent += numBtn.textContent;
     });
   });
@@ -71,11 +76,9 @@ function main() {
       if (+display.textContent !== numbers[0]) {
         numbers.push(+display.textContent); //check if operate was pressed
       }
-
       if (numbers.length >= 2) {
         calc();
       }
-
       operator = opBtn.textContent;
     });
   });
