@@ -36,6 +36,7 @@ function main() {
   let operator;
   let display = document.querySelector('.calculator__display');
   const operateBtn = document.querySelector('.calculator__operateBtn');
+  const backbtn = document.querySelector('.calculator__backBtn');
 
   function wipeData() {
     display.textContent = '0';
@@ -100,6 +101,18 @@ function main() {
 
   // clear button wipe all
   document.querySelector('.calculator__clearBtn').addEventListener('click', wipeData);
+
+  //back btn 
+  backbtn.addEventListener('click', () => {
+    if (display.textContent) {  
+      display.textContent = display.textContent.slice(0, -1);
+    } 
+   
+    if (!display.textContent) {
+      display.textContent = '0';
+    }
+    
+  });
 }
 
 main();
