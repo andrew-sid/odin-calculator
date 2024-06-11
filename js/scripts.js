@@ -62,6 +62,10 @@ function main() {
   //num listener
   document.querySelectorAll('.calculator__numBtn').forEach((numBtn) => {
     numBtn.addEventListener('click', () => {
+      if (numBtn.textContent === '.') {
+        if (display.textContent.includes('.')) return; // checking if . almost in display
+      }
+
       if (display.textContent === '0' || Number(display.textContent) === numbers.at(-1)) {
         display.textContent = '';
       }
