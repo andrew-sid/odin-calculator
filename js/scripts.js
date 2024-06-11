@@ -45,6 +45,8 @@ function main() {
 
   function calc() {
     let result = operate(numbers.at(-2), numbers.at(-1), operator);
+    console.log(result.toString().length);
+    result.toString().length > 12 ? result =  Number(result.toFixed(10)) : null;
     display.textContent = result;
     numbers = [];
     numbers.push(result);
