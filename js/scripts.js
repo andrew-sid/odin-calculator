@@ -46,7 +46,7 @@ function main() {
   function calc() {
     let result = operate(numbers.at(-2), numbers.at(-1), operator);
     console.log(result.toString().length);
-    result.toString().length > 12 ? result =  Number(result.toFixed(10)) : null;
+    result.toString().length > 12 ? (result = Number(result.toFixed(10))) : null;
     display.textContent = result;
     numbers = [];
     numbers.push(result);
@@ -58,6 +58,8 @@ function main() {
       if (display.textContent === '0' || Number(display.textContent) === numbers.at(-1)) {
         display.textContent = '';
       }
+
+      if (display.textContent.length === 14) return; //disabled when oveflow
 
       display.textContent += numBtn.textContent;
     });
