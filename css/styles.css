@@ -13,7 +13,8 @@ body {
 }
 
 .calculator {
-  width: 310px;
+  width: 300px;
+  height: 430px;
   border: 1px solid rgb(18, 0, 100);
   background-color: gray;
   padding: 8px;
@@ -27,13 +28,18 @@ body {
   font-size: 39px;
   text-align: right;
   background-color: rgb(54, 54, 54);
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.calculator__funcBtns {
+  display: flex;
+  justify-content: space-between;
 }
 
 .calculator__buttons {
   display: flex;
   flex-flow: wrap column;
-  gap: 5px;
+  gap: 25px;
 }
 
 .calculator__row {
@@ -41,9 +47,10 @@ body {
 }
 
 button {
-  width: 70px;
+  width: 67px;
   height: 40px;
   background-color: #686767;
   color: white;
   font-size: 20px;
+  cursor: pointer;
 }
