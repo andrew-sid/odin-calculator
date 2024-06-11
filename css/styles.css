@@ -31,11 +31,6 @@ body {
   margin-bottom: 30px;
 }
 
-.calculator__funcBtns {
-  display: flex;
-  justify-content: space-between;
-}
-
 .calculator__buttons {
   display: flex;
   flex-flow: wrap column;
